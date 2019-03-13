@@ -3,3 +3,5 @@ compile:
 
 execute:
 	docker run --rm -v $(PWD):/usr/src/myapp -w /usr/src/myapp ubuntu /usr/src/myapp/clox
+
+build-and-run: compile execute
