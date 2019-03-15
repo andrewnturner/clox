@@ -321,12 +321,7 @@ static void parsePrecedence(Precedence precedence)
 
     prefixRule();
   
-    printf("Initial Precedence: %d\n", (int)precedence);
-    printf("Initial Next: %d\n", (int)getRule(parser.current.type)->precedence);
-    printf("%d\n", precedence <= getRule(parser.current.type)->precedence);
     while (precedence <= getRule(parser.current.type)->precedence) {
-        printf("Precedence: %d\n", (int)precedence);
-        printf("Next: %d\n", (int)getRule(parser.current.type)->precedence);
         advance();
         ParseFn infixRule = getRule(parser.previous.type)->infix;
         infixRule();
